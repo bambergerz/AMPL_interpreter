@@ -75,11 +75,6 @@ class SetArgument(Argument):
 
 class IntegerArgument(Argument):
     def __init__(self, x):
-        """
-
-        :param x: an int which represents an integer
-        """
-
         super(IntegerArgument, self).__init__()
         self.integer = x
 
@@ -145,6 +140,14 @@ class Param:
             return "param " + self.name + " " + str(self.constraint) + ";"
 
 
+class Variable:
+    def __init__(self, name, constraints):
+        self.name = name
+        self.constraints = constraints
+
+    # TODO: explore how variable constraints operate
+
+
 if __name__ == "__main__":
 
     file = ModFile("Rec2")
@@ -171,6 +174,7 @@ if __name__ == "__main__":
             y=IntegerArgument(0)
         )
     )
+
     file.add_line(str(verticies))
     file.add_line(str(edges))
     file.add_line(str(source))
